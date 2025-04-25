@@ -5,12 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WFR review</title>
-<!--     <link rel="stylesheet" href="./style.css"> -->
-<!--     <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
   <body>
     <main>
-        <h1>Hello there!</h1>  
+      <h1>WFR Review</h1>
+      <p>You have a {{patient.age}} year old {{ patient.sex }} patient named {{ patient.name }}.  Their symptoms and vitals are below.  What condition do you think they have, and what is the treatment for it?</p>
+      <p class="hidden_info">They have <strong>{{ patient.condition_name }}</strong>: {{ patient.condition_description }}</p>
+      
+      <div class="container">
+        <div class="column left">
+          <h2>Symptoms</h2>
+          <ul>  
+            {% for symptom in patient.condition_selected_symptoms %}
+                <li>{{ symptom }}</li>
+            {% endfor %}
+            {% for symptom in patient.condition_hidden_symptoms %}
+                <li class="hidden_info"><span class="special_text" title="This symptom was present but hidden because its effect was shown via a change in the patient's vital signs.">{{ symptom }}</span></li>
+            {% endfor %}
+            {% for symptom in patient.condition_unselected_symptoms %}
+                <li class="hidden_info"><span class="special_text" title="This symptom was not present in this particular patient">{{ symptom }}</span></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="column right">
+          <h2>Vitals</h2>
+          <ul>
+            <li>Time: 5 minutes ago</li>
+            <li>LOR: {{ patient.level_of_responsiveness }}</li>
+            <li>HR: {{ patient.heart_rate }} / {{ patient.heart_strength }} / {{ patient.heart_rhythm }}</li>
+            <li>RR: {{ patient.respiratory_rate }} / {{ patient.respiratory_rhythm }} / {{ patient.respiratory_effort }}</li>
+            <li>Skin: {{ patient.skin_color }}, {{ patient.skin_temperature }}, {{ patient.skin_moisture }}</li>
+            <li>Temp: {{ patient.body_temperature|round(1) }} &#176;F</li>
+            <li>Pupils: {{ patient.pupils }}</li>
+            <li>BP: {{ patient.blood_pressure }}</li>
+          </ul>
+        </div>
+      </div>
+        
+      <div class="hidden_info">
+        <h2>Treatments</h2>
+        <ul>
+          {% for treatment in patient.condition_treatments %}
+          <li>{{ treatment }}</li> 
+          {% endfor %}
+        </ul>
+        <h2>Evacuation guidelines</h2>
+        <ul>
+          {% for guideline in patient.condition_evacuation_guidelines %}
+          <li>{{ guideline }}</li> 
+          {% endfor %}
+        </ul>
+      </div>
     </main>
   </body>
 </html>
