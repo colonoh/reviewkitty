@@ -12,7 +12,7 @@
     <main>
       <h1>WFR Review</h1>
       <p>
-        You have a <span id="patient_age">PATIENT_AGE</span> year old <span id="patient_sex">PATIENT_SEX</span> patient named <span id="patient_name">PATIENT_NAME</span>.  Their symptoms and vitals are below.  What condition do you think they have, and what is the treatment for it?
+        You have a <span id="age">age</span> year old <span id="sex">sex</span> patient named <span id="name">name</span>.  Their symptoms and vitals are below.  What condition do you think they have, and what is the treatment for it?
       </p>
       <p class="hidden_info">They have <strong>{{ patient.condition_name }}</strong>: {{ patient.condition_description }}</p>
       
@@ -35,29 +35,23 @@
           <h2>Vitals</h2>
           <ul>
             <li>Time: 5 minutes ago</li>
-            <li>LOR: {{ patient.level_of_responsiveness }}</li>
-            <li>HR: {{ patient.heart_rate }} / {{ patient.heart_strength }} / {{ patient.heart_rhythm }}</li>
-            <li>RR: {{ patient.respiratory_rate }} / {{ patient.respiratory_rhythm }} / {{ patient.respiratory_effort }}</li>
-            <li>Skin: {{ patient.skin_color }}, {{ patient.skin_temperature }}, {{ patient.skin_moisture }}</li>
-            <li>Temp: {{ patient.body_temperature|round(1) }} &#176;F</li>
-            <li>Pupils: {{ patient.pupils }}</li>
-            <li>BP: {{ patient.blood_pressure }}</li>
+            <li>LoR: <span id="level_of_responsiveness">level_of_responsiveness</span></li>
+            <li>HR: <span id="heart_rate">heart_rate</span> / <span id="heart_strength">heart_strength</span> / <span id="heart_rhythm">heart_rhythm</span></li>
+            <li>RR: <span id="respiratory_rate">respiratory_rate</span> / <span id="respiratory_rhythm">respiratory_rhythm</span> / <span id="respiratory_effort">respiratory_effort</span></li>
+            <li>Skin: <span id="skin_color">skin_color</span>, <span id="skin_temperature">skin_temperature</span>, <span id="skin_moisture">skin_moisture</span></li>
+            <li>Temp: <span id="body_temperature">body_temperature</span> &#176;F</li>
+            <li>Pupils: <span id="pupils">pupils</span></li>
+            <li>BP: <span id="blood_pressure">blood_pressure</span></li>
           </ul>
         </div>
       </div>
         
       <div class="hidden_info">
         <h2>Treatments</h2>
-        <ul>
-          {% for treatment in patient.condition_treatments %}
-          <li>{{ treatment }}</li> 
-          {% endfor %}
+        <ul id="treatments">
         </ul>
         <h2>Evacuation guidelines</h2>
-        <ul>
-          {% for guideline in patient.condition_evacuation_guidelines %}
-          <li>{{ guideline }}</li> 
-          {% endfor %}
+        <ul id="evacuation_guidelines">
         </ul>
       </div>
     </main>

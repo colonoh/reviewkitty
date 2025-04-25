@@ -18,7 +18,7 @@ const conditions = [
       "Evacuate"
     ],
     evacuation_guidelines: [
-      "Evacuate any patient with chest pain that is not clearly musculoskeletal pulmonary, or gastrointestinal.",
+      "Evacuate any patient with chest pain that is not clearly musculoskeletal, pulmonary, or gastrointestinal.",
       "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes."
     ]
   },
@@ -46,8 +46,6 @@ const conditions = [
       "Consider (giving) fluids"
     ],
     evacuation_guidelines: [
-      "Evacuate any patient with chest pain that is not clearly musculoskeletal, pulmonary, or gastrointestinal.",
-      "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes."
     ],
     references: [
       "NOLS Wilderness Medicine, 6th edition"
