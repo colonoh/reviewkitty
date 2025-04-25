@@ -1,10 +1,10 @@
-// hello there
+// NOTE: conditions.js needs to be included before this otherwise `conditions` will be undefined
+
 document.addEventListener('DOMContentLoaded', () => {
   min_age = 18;
   max_age = 80;
   const patient_age = Math.floor(Math.random() * (max_age - min_age + 1) + min_age);
   const patient_sex = Math.random() < 0.5 ? 'male' : 'female';
-
   const names = ["Alex", "Andy", "Avery", "Blake", "Casey", "Charlie", "Dakota", 
                  "Devin", "Drew", "Elliot", "Emery", "Finley", "Frankie", "Harper", 
                  "Hayden", "Jamie", "Jordan", "Jules", "Kai", "Kendall", "Lane", 
@@ -16,4 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('patient_age').textContent = patient_age;
   document.getElementById('patient_sex').textContent = patient_sex;
   document.getElementById('patient_name').textContent = patient_name;
+
+  const random_condition = conditions[Math.floor(Math.random() * conditions.length)];
+  console.log(random_condition);
+
+
 });
