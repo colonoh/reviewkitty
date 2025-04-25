@@ -11,7 +11,9 @@
   <body>
     <main>
       <h1>WFR Review</h1>
-      <p>You have a {{patient.age}} year old {{ patient.sex }} patient named {{ patient.name }}.  Their symptoms and vitals are below.  What condition do you think they have, and what is the treatment for it?</p>
+      <p>
+        You have a <span id="patient_age">PATIENT_AGE</span> year old <span id="patient_sex">PATIENT_SEX</span> patient named <span id="patient_name">PATIENT_NAME</span>.  Their symptoms and vitals are below.  What condition do you think they have, and what is the treatment for it?
+      </p>
       <p class="hidden_info">They have <strong>{{ patient.condition_name }}</strong>: {{ patient.condition_description }}</p>
       
       <div class="container">
@@ -59,5 +61,6 @@
         </ul>
       </div>
     </main>
+    <script src="index.js"></script>
   </body>
 </html>
