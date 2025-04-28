@@ -11,24 +11,18 @@
   <body>
     <main>
       <h1>WFR Review</h1>
+      <button type="button" id="reveal_button" onclick="this.disabled = true;">Reveal</button> <button type="button" onClick="window.location.reload();">Next patient</button>
+
       <p>
         You have a <span id="age">age</span> year old <span id="sex">sex</span> patient named <span id="name">name</span>.  Their symptoms and vitals are below.  What condition do you think they have, and what is the treatment for it?
       </p>
-      <p class="hidden_info">They have <strong>{{ patient.condition_name }}</strong>: {{ patient.condition_description }}</p>
+
+      <p>They have <strong><span id="condition_name">???</span></strong>: <span id="condition_description"></p>
       
       <div class="container">
         <div class="column left">
           <h2>Signs & Symptoms</h2>
-          <ul>  
-            {% for symptom in patient.condition_selected_symptoms %}
-                <li>{{ symptom }}</li>
-            {% endfor %}
-            {% for symptom in patient.condition_hidden_symptoms %}
-                <li class="hidden_info"><span class="special_text" title="This symptom was present but hidden because its effect was shown via a change in the patient's vital signs.">{{ symptom }}</span></li>
-            {% endfor %}
-            {% for symptom in patient.condition_unselected_symptoms %}
-                <li class="hidden_info"><span class="special_text" title="This symptom was not present in this particular patient">{{ symptom }}</span></li>
-            {% endfor %}
+          <ul id="symptoms">
           </ul>
         </div>
         <div class="column right">
@@ -49,9 +43,11 @@
       <div class="hidden_info">
         <h2>Treatments</h2>
         <ul id="treatments">
+          <li>???</li>
         </ul>
         <h2>Evacuation guidelines</h2>
         <ul id="evacuationGuidelines">
+          <li>???</li>
         </ul>
       </div>
     </main>
