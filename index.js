@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (i = 0; i < selectedSymptoms.length; ++i) {
       let li = document.createElement('li');
-      li.innerText = selectedSymptoms[i];
+      li.innerText = selectedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
       document.getElementById("symptoms").appendChild(li);
   }
 })

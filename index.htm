@@ -14,10 +14,10 @@
       <button type="button" id="reveal_button" onclick="this.disabled = true;">Reveal</button> <button type="button" onClick="window.location.reload();">Next patient</button>
 
       <p>
-        You have a <span id="age">age</span> year old <span id="sex">sex</span> patient named <span id="name">name</span>.  Their symptoms and vitals are below.  What condition do you think they have, and what is the treatment for it?
+        You have a <span id="age">age</span> year old <span id="sex">sex</span> patient named <span id="name">name</span>.  What condition do you think they have, and what are the treatments and evacuation guidelines?
       </p>
 
-      <p>They have <strong><span id="condition_name">???</span></strong>: <span id="condition_description"></p>
+      <p><strong><span id="condition_name"></span></strong> <span id="condition_description"></p>
       
       <div class="container">
         <div class="column left">
@@ -43,11 +43,9 @@
       <div class="hidden_info">
         <h2>Treatments</h2>
         <ul id="treatments">
-          <li>???</li>
         </ul>
         <h2>Evacuation guidelines</h2>
         <ul id="evacuationGuidelines">
-          <li>???</li>
         </ul>
       </div>
     </main>
