@@ -39,6 +39,7 @@ const basePatient = {
   'age': age,
   'sex': sex,
   'name': potentialNames[Math.floor(Math.random() * potentialNames.length)],  // pick a name at random
+  'time': new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),  // now e.g. 01:30 AM
   'levelOfResponsiveness': "A&O x4",
   'heartRate': Math.floor(Math.random() * (100 - 60 + 1) + 60),  // random value from 60-100, not scientific!
   'heartStrength': 'strong',
