@@ -1,6 +1,6 @@
 // NOTE: conditions.js needs to be included before this otherwise `conditions` will be undefined
 
-const showPercentOfSymptoms = 0.7;  // show only 70% of the total symptoms
+const percentSymptomsToShow = 0.7;  // show only 70% of the total symptoms
 
 const potentialNames = ["Alex", "Andy", "Avery", "Blake", "Casey", "Charlie", "Dakota", 
                  "Devin", "Drew", "Elliot", "Emery", "Finley", "Frankie", "Harper", 
@@ -8,6 +8,15 @@ const potentialNames = ["Alex", "Andy", "Avery", "Blake", "Casey", "Charlie", "D
                  "Logan", "Micah", "Morgan", "Parker", "Quinn", "Reese", "Riley", 
                  "River", "Robin", "Rowan", "Sage", "Sam", "Skylar", "Taylor", "Tatum", 
                  "Toby", "Tyler", "Wren"];
+
+// stolen from https://stackoverflow.com/a/12646864
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 
 document.addEventListener('DOMContentLoaded', () => { // ensures page is loaded before this runs
   const age = Math.floor(Math.random() * (80 - 18 + 1) + 18); // random value from 18-80, not scientific!
@@ -17,15 +26,16 @@ document.addEventListener('DOMContentLoaded', () => { // ensures page is loaded 
   // generate the patient's default vitals
   const defaultLevelOfResponsiveness = "A&O x4";
   const defaultHeartRate = Math.floor(Math.random() * (100 - 60 + 1) + 60);  // random value from 60-100, not scientific!
-  const defaultHeartStrength = "Strong";
-  const defaultHeartRhythm = "Regular";
+  const defaultHeartStrength = "strong";
+  const defaultHeartRhythm = "regular";
   const defaultRespiratoryRate = Math.floor(Math.random() * (20 - 12 + 1) + 12);  // random value from 12-20, not scientific!
-  const defaultRespiratoryRhythm = "Regular";
-  const defaultRespiratoryEffort = "Unlabored";
+  const defaultRespiratoryRhythm = "regular";
+  const defaultRespiratoryEffort = "unlabored";
   const defaultSkinColor = "Pink";
-  const defaultSkinTemperature = "Warm";
-  const defaultSkinMoisture = "Dry";
-  /*- Mackowiak, P. A., Wasserman, S. S., & Levine, M. M. (1992). A critical appraisal of 98.6°F, the upper limit of 
+  const defaultSkinTemperature = "warm";
+  const defaultSkinMoisture = "dry";
+  /* Formula for body temperature (in degrees Fahrenheit) from:
+    - Mackowiak, P. A., Wasserman, S. S., & Levine, M. M. (1992). A critical appraisal of 98.6°F, the upper limit of 
       the normal body temperature, and other legacies of Carl Reinhold August Wunderlich. JAMA, 268(12), 1578-1580.
     - Sund-Levander, M., Forsberg, C., & Wahren, L. K. (2002). Normal oral, rectal, tympanic, and axillary body 
       temperature in adult men and women: A systematic literature review. Scandinavian Journal of Caring Sciences, 
@@ -36,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => { // ensures page is loaded 
   const defaultPupils = "Equal, round, and react to light";
   const defaultBloodPressure = "Strong radial pulse";
 
-  // these are the actually-used values (which may be modified from default)
+  // the values start with the default values but may be modified by the symptoms
   let levelOfResponsiveness = defaultLevelOfResponsiveness;
   let heartRate = defaultHeartRate;
   let heartStrength = defaultHeartStrength;
@@ -54,9 +64,26 @@ document.addEventListener('DOMContentLoaded', () => { // ensures page is loaded 
   // pick a random condition
   // TODO: pick a condition filtering for the sex
   const condition = conditions[Math.floor(Math.random() * conditions.length)];
-  console.log(condition);
+
   // pick a subset of the symptoms
-  // exclude symptoms where the vital has already been affected (i.e. the vital is already different than its default)
+  shuffleArray(condition.symptoms);
+  let selectedSymptoms = [];
+  for (const symptom of condition.symptoms) {
+    if (selectedSymptoms.length >= condition.symptoms.length * percentSymptomsToShow) break;  // stop if we have enough symptoms
+
+    // exclude symptoms where the vital has already been affected (i.e. the vital is already different than its default)
+    console.log(symptoms[symptom]);
+    for (const [vital, modifier] of Object.entries(symptoms[symptom])) {
+      console.log(vital, modifier);
+    }
+    selectedSymptoms.push(symptom);
+
+  }
+
+  // console.log(selectedSymptoms);
+  
+
+  
 
   // modify the vitals based on the symptoms
 
