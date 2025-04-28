@@ -14,12 +14,10 @@ Formula for body temperature (in degrees Fahrenheit) from:
 
 const percentSymptomsToShow = 0.7;  // show only 70% of the total symptoms
 
-const potentialNames = ["Alex", "Andy", "Avery", "Blake", "Casey", "Charlie", "Dakota", 
-                 "Devin", "Drew", "Elliot", "Emery", "Finley", "Frankie", "Harper", 
-                 "Hayden", "Jamie", "Jordan", "Jules", "Kai", "Kendall", "Lane", 
-                 "Logan", "Micah", "Morgan", "Parker", "Quinn", "Reese", "Riley", 
-                 "River", "Robin", "Rowan", "Sage", "Sam", "Skylar", "Taylor", "Tatum", 
-                 "Toby", "Tyler", "Wren"];
+const potentialNames = ["Alex", "Andy", "Avery", "Blake", "Casey", "Charlie", "Dakota", "Devin", "Drew", "Elliot", 
+  "Emery", "Finley", "Frankie", "Harper", "Hayden", "Jamie", "Jordan", "Jules", "Kai", "Kendall", "Lane", "Logan", 
+  "Micah", "Morgan", "Parker", "Quinn", "Reese", "Riley", "River", "Robin", "Rowan", "Sage", "Sam", "Skylar", 
+  "Taylor", "Tatum", "Toby", "Tyler", "Wren"];
 
 // stolen from https://stackoverflow.com/a/12646864
 function shuffleArray(array) {
@@ -29,19 +27,17 @@ function shuffleArray(array) {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', () => { // ensures page is loaded before this runs
   const age = Math.floor(Math.random() * (80 - 18 + 1) + 18); // random value from 18-80, not scientific!
   const sex = Math.random() < 0.5 ? 'male' : 'female';
-  const name = potentialNames[Math.floor(Math.random() * potentialNames.length)];  // pick a name at random
-  const S = sex === "male" ? 0 : 1;
+  const S = sex === "male" ? 0 : 1;  // for body temp formula, 1 for males
   const eps = Math.random() * 0.5;  // randomness for body temp
 
   // generate the patient's default info and vitals
   const basePatient = {
     'age': age,
     'sex': sex,
-    'name': name,
+    'name': potentialNames[Math.floor(Math.random() * potentialNames.length)],  // pick a name at random
     'levelOfResponsiveness': "A&O x4",
     'heartRate': Math.floor(Math.random() * (100 - 60 + 1) + 60),  // random value from 60-100, not scientific!
     'heartStrength': 'strong',
@@ -49,38 +45,49 @@ document.addEventListener('DOMContentLoaded', () => { // ensures page is loaded 
     'respiratoryRate': Math.floor(Math.random() * (20 - 12 + 1) + 12),  // random value from 12-20, not scientific!
     'respiratoryRhythm': 'regular',
     'respiratoryEffort': 'unlabored',
-    'skinColor': 'Pink',
+    'skinColor': 'pink',
     'skinTemperature': 'warm',
     'skinMoisture': 'dry',
     'bodyTemperature': Math.round(98.2 - (0.02 * age) + (0.3 * S) + eps),
-    'pupils': 'Equal, round, and react to light',
-    'bloodPressure': 'Strong radial pulse',
+    'pupils': 'equal, round, and react to light',
+    'bloodPressure': 'strong radial pulse',
   };
 
-  let finalPatient = structuredClone(basePatient);  // start with the default values but some may be modified by the symptoms
+  let finalPatient = structuredClone(basePatient);  // copy the default values but some may be modified by the symptoms
 
   // pick a random condition
   // TODO: pick a condition filtering for the sex
   const condition = conditions[Math.floor(Math.random() * conditions.length)];
 
   // pick a subset of the symptoms
-  shuffleArray(condition.symptoms);
+  shuffleArray(condition.symptoms); // randomize the order of the symptoms
   let selectedSymptoms = [];
+  symptoms_loop:
   for (const symptom of condition.symptoms) {
     if (selectedSymptoms.length >= condition.symptoms.length * percentSymptomsToShow) break;  // stop if we have enough symptoms
 
-    // exclude symptoms where the vital has already been affected (i.e. the vital is already different than its default)
-    console.log(symptoms[symptom]);
-    for (const [vital, modifier] of Object.entries(symptoms[symptom])) {
-      console.log(vital, modifier);
+    // before selecting this symptom, check if it affects any symptoms which have already been affected
+    for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
+      // console.log(vital_affected, how);
+      if (finalPatient[vital_affected] !== basePatient[vital_affected]) {
+        console.log(vital_affected, "already modified!", basePatient[vital_affected], finalPatient[vital_affected]);
+        continue symptoms_loop; // skip the rest of the outer for loop
+      }
     }
 
-    // modify the vitals based on the symptoms
-
+    // okay, choose this symptom and apply it's effects
+    // console.log("Selecting ", symptom);
     selectedSymptoms.push(symptom);
-
+    for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
+      if (typeof how === 'string') { 
+        finalPatient[vital_affected] = how;  // text values replace the current value
+      } else {
+        finalPatient[vital_affected] *= how;  // non-text values (e.g. float) modify the value
+        finalPatient[vital_affected] = Math.round(finalPatient[vital_affected]);
+      }
+    }
   }
-  // console.log(selectedSymptoms);
+  console.log("Selected symptoms:", selectedSymptoms);
 
   // in the HTML doc, replace all the values with the new values (don't do this until all values have been modified by symptoms)
   for (const [key, value] of Object.entries(finalPatient)) {

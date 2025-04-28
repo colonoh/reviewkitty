@@ -1,16 +1,15 @@
 const symptoms = {
   "nausea": {},
   "discomfort_in_the_neck": {},
-  "rapid_pulse": {"heartRate": -.5},
-  "pale_cool_clammy_skin": {},
-  "slow_pulse": {},
-  "weak_pulse": {},
-  "irregular_pulse": {},
-  "rapid_breathing": {},
-  "shallow_breathing": {},
+  "rapid_pulse": {"heartRate": 1.5},
+  "pale_cool_clammy_skin": {"skinColor": "pale", "skinTemperature": "cool", "skinMoisture": "clammy"},
+  "slow_pulse": {"heartRate": .5},
+  "weak_pulse": {"heartStrength": "weak"},
+  "irregular_pulse": {"heartRhythm": "irregular"},
+  "rapid_breathing": {"respiratoryRate": 1.5},
+  "shallow_breathing": {"respiratoryEffort": "shallow"},
   "anxiety": {},
   "restlessness": {},
-  "nausea": {},
   "thirst": {},
 
 };
