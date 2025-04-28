@@ -17,12 +17,14 @@
         You have a <span id="age">age</span> year old <span id="sex">sex</span> patient named <span id="name">name</span>.  What condition do you think they have, and what are the treatments and evacuation guidelines?
       </p>
 
-      <p><strong><span id="condition_name"></span></strong> <span id="condition_description"></p>
+      <p><strong><span id="condition_name"></span></strong><span id="condition_description"></p>
       
       <div class="container">
         <div class="column left">
           <h2>Signs & Symptoms</h2>
-          <ul id="symptoms">
+          <ul id="selected_symptoms">
+          </ul>
+          <ul id="unshown_symptoms">
           </ul>
         </div>
         <div class="column right">
@@ -40,7 +42,7 @@
         </div>
       </div>
         
-      <div class="hidden_info">
+      <div>
         <h2>Treatments</h2>
         <ul id="treatments">
         </ul>

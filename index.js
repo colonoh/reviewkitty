@@ -1,6 +1,5 @@
-// NOTE: conditions.js needs to be included before this otherwise `conditions` will be undefined
-
 /* 
+NOTE: conditions.js needs to be included before this otherwise `conditions` will be undefined!
 
 Formula for body temperature (in degrees Fahrenheit) from:
   - Mackowiak, P. A., Wasserman, S. S., & Levine, M. M. (1992). A critical appraisal of 98.6°F, the upper limit of 
@@ -8,11 +7,10 @@ Formula for body temperature (in degrees Fahrenheit) from:
   - Sund-Levander, M., Forsberg, C., & Wahren, L. K. (2002). Normal oral, rectal, tympanic, and axillary body 
     temperature in adult men and women: A systematic literature review. Scandinavian Journal of Caring Sciences, 
     16(2), 122-128. 
-
 */
 
 
-const percentSymptomsToShow = 0.7;  // show only 70% of the total symptoms
+const percentSymptomsToShow = 0.7;  // show only X% of the total symptoms
 
 const potentialNames = ["Alex", "Andy", "Avery", "Blake", "Casey", "Charlie", "Dakota", "Devin", "Drew", "Elliot", 
   "Emery", "Finley", "Frankie", "Harper", "Hayden", "Jamie", "Jordan", "Jules", "Kai", "Kendall", "Lane", "Logan", 
@@ -26,8 +24,6 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
-// let reveal = false;  // show the condition and full symptoms when set to true
 
 // generate the patient's default info and vitals
 const age = Math.floor(Math.random() * (80 - 18 + 1) + 18); // random value from 18-80, not scientific!
@@ -102,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   for (i = 0; i < selectedSymptoms.length; ++i) {
       let li = document.createElement('li');
       li.innerText = selectedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
-      document.getElementById("symptoms").appendChild(li);
+      document.getElementById("selected_symptoms").appendChild(li);
   }
 })
 
@@ -110,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('reveal_button').addEventListener('click', () => {
   // condition
   document.getElementById("condition_name").textContent = condition.name;
-  document.getElementById("condition_description").textContent = condition.description;
+  document.getElementById("condition_description").textContent = ": " + condition.description;
 
   // treatments
   for (i = 0; i < condition.treatments.length; ++i) {
