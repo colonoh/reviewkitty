@@ -218,13 +218,13 @@ hr {
 }
 
 .hidden_symptom {
-/*    border-bottom: 1px dotted gray;*/
+    border-bottom: 1px dashed #222222;
     cursor: help;
     display: inline;
 }
 
 .omitted_symptom {
-/*    border-bottom: 1px dotted gray;*/
+    border-bottom: 1px dashed #222222;
     color: #bbbbbb;
     cursor: help;
     display: inline;
