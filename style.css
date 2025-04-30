@@ -174,8 +174,8 @@ th {
     border-collapse: collapse;
 }
 
-/* prevent a gap between the lists */
 ul {
+    /* prevent a gap between the lists */
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 20px;
@@ -231,7 +231,8 @@ hr {
 /*    text-decoration: line-through;*/
 }
 
-#reveal_button {
+#reveal_button { 
+    /* prevent the button from changing sizes after its text changes */
     min-width: 10em;  
     max-width: 10em;
 }

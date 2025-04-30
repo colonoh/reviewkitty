@@ -11,8 +11,8 @@ const symptoms = {
   "anxiety": {},
   "restlessness": {},
   "thirst": {},
-
 };
+
 const conditions = [
   {
     name: "Angina",
