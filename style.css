@@ -173,11 +173,10 @@ th {
     border-collapse: collapse;
 }
 
-/* text with an underline */
-.special_text {
-    border-bottom: 1px dotted white;
-    cursor: help;
-    display: inline
+/* prevent a gap between the lists */
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .container {
@@ -187,4 +186,19 @@ th {
 .column {
   flex: 1; /* Equal width */
   padding: 10px;
+}
+
+
+.hidden_symptom {
+/*    border-bottom: 1px dotted gray;*/
+    cursor: help;
+    display: inline;
+}
+
+.omitted_symptom {
+/*    border-bottom: 1px dotted gray;*/
+    color: #bbbbbb;
+    cursor: help;
+    display: inline;
+/*    text-decoration: line-through;*/
 }

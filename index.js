@@ -10,7 +10,7 @@ Formula for body temperature (in degrees Fahrenheit) from:
 */
 
 
-const percentSymptomsToShow = 0.7;  // show only X% of the total symptoms
+const percentSymptomsToShow = 0.8;  // show only X% of the total symptoms
 
 const potentialNames = ["Alex", "Andy", "Avery", "Blake", "Casey", "Charlie", "Dakota", "Devin", "Drew", "Elliot", 
   "Emery", "Finley", "Frankie", "Harper", "Hayden", "Jamie", "Jordan", "Jules", "Kai", "Kendall", "Lane", "Logan", 
@@ -125,7 +125,7 @@ document.getElementById('reveal_button').addEventListener('click', () => {
   for (i = 0; i < hiddenSymptoms.length; ++i) {
       let li = document.createElement('li');
       let span = document.createElement('span');
-      span.className = 'special_text';
+      span.className = 'hidden_symptom';
       span.title = 'Symptoms which modify a vital sign (e.g. rapid heart rate) are not written out but their effect can be seen in the patient\'s vitals';
       span.innerText = hiddenSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
       li.appendChild(span);
@@ -135,7 +135,7 @@ document.getElementById('reveal_button').addEventListener('click', () => {
   for (i = 0; i < omittedSymptoms.length; ++i) {
       let li = document.createElement('li');
       let span = document.createElement('span');
-      span.className = 'special_text';
+      span.className = 'omitted_symptom';
       span.title = 'This symptom was not present in this patient';
       span.innerText = omittedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
       li.appendChild(span);
