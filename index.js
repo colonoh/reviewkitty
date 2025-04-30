@@ -122,37 +122,42 @@ document.getElementById('reveal_button').addEventListener('click', () => {
 
   // the first time the button is hit, it does the rest of the code
   // the second time, it reloads the page
-  reveal_hit === true ? window.location.reload() : reveal_hit = true;
+  if (reveal_hit === true ) window.location.reload();
+  else {
+    reveal_hit = true;
 
-  // condition
-  document.getElementById("condition_name").textContent = condition.name;
-  document.getElementById("condition_description").textContent = ": " + condition.description;
+    // condition
+    document.getElementById("condition_name").textContent = condition.name;
+    document.getElementById("condition_description").textContent = ": " + condition.description;
 
-  for (let i = 0; i < hiddenSymptoms.length; ++i) {
-      const clone = document.getElementById('hiddenSymptomTemplate').content.cloneNode(true);
-      const span = clone.querySelector('span');
-      span.innerText = hiddenSymptoms[i];
-      document.getElementById("hiddenSymptoms").appendChild(clone);
+    for (let i = 0; i < hiddenSymptoms.length; ++i) {
+        const clone = document.getElementById('hiddenSymptomTemplate').content.cloneNode(true);
+        const span = clone.querySelector('span');
+        span.innerText = hiddenSymptoms[i];
+        document.getElementById("hiddenSymptoms").appendChild(clone);
+    }
+
+    for (let i = 0; i < omittedSymptoms.length; ++i) {
+        const clone = document.getElementById('omittedSymptomTemplate').content.cloneNode(true);
+        const span = clone.querySelector('span');
+        span.innerText = omittedSymptoms[i];
+        document.getElementById("omittedSymptoms").appendChild(clone);
+    }
+
+    //treatments
+    for (i = 0; i < condition.treatments.length; ++i) {
+        let li = document.createElement('li');
+        li.innerText = condition.treatments[i];
+        document.getElementById("treatments").appendChild(li);
+    }
+
+    // evacuation guidelines
+    for (i = 0; i < condition.evacuationGuidelines.length; ++i) {
+        let li = document.createElement('li');
+        li.innerText = condition.evacuationGuidelines[i];
+        document.getElementById("evacuationGuidelines").appendChild(li);
+    }
   }
 
-  for (let i = 0; i < omittedSymptoms.length; ++i) {
-      const clone = document.getElementById('omittedSymptomTemplate').content.cloneNode(true);
-      const span = clone.querySelector('span');
-      span.innerText = omittedSymptoms[i];
-      document.getElementById("omittedSymptoms").appendChild(clone);
-  }
-
-  //treatments
-  for (i = 0; i < condition.treatments.length; ++i) {
-      let li = document.createElement('li');
-      li.innerText = condition.treatments[i];
-      document.getElementById("treatments").appendChild(li);
-  }
-
-  // evacuation guidelines
-  for (i = 0; i < condition.evacuationGuidelines.length; ++i) {
-      let li = document.createElement('li');
-      li.innerText = condition.evacuationGuidelines[i];
-      document.getElementById("evacuationGuidelines").appendChild(li);
-  }
+  
 });
