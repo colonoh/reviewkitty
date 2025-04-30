@@ -41,7 +41,7 @@ const conditions = [
   },
   {
     name: "Shock (early stages)",
-    description: "The inadequate perfusion of tissue with oxygenated blood, due to a failure of any or all of three basic components of the circulatory system - heart, blood vessels, and blood - to deliver oxygenated blood to the tissues.",
+    description: "The inadequate perfusion of tissue with oxygenated blood, due to a failure of the heart, blood vessels, and/or blood - to deliver oxygenated blood to the tissues.",
     symptoms: [
       "pale, cool, clammy skin",
       "rapid pulse",
