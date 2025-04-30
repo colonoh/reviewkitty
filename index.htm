@@ -19,13 +19,8 @@
         </div>
       </div>
       
+      <span>Your patient is <span id="name">name</span>, a <span id="age">age</span> year-old <span id="sex">sex</span>.</span>
 
-      <p>
-        You have a <span id="age">age</span> year old <span id="sex">sex</span> patient named <span id="name">name</span>.  What condition do you think they have, and what are the treatments and evacuation guidelines?
-      </p>
-
-      <p><strong><span id="condition_name"></span></strong><span id="condition_description"></p>
-      
       <div class="container">
         <div class="column left">
           <h2>Signs & Symptoms</h2>
@@ -57,14 +52,23 @@
           </ul>
         </div>
       </div>
+
+      <hr />
         
-      <div>
-        <h2>Treatments</h2>
-        <ul id="treatments">
-        </ul>
-        <h2>Evacuation guidelines</h2>
-        <ul id="evacuationGuidelines">
-        </ul>
+      <h2 id="condition_name"></h2>
+      <span id="condition_description"></span>
+
+      <div class="container">
+        <div class="column left">
+          <h3 id="treatmentsHeader"></h3>
+          <ul id="treatments">
+          </ul>
+        </div>
+        <div class="column right">
+          <h3 id="evacuationGuidelinesHeader"></h3>
+          <ul id="evacuationGuidelines">
+          </ul>
+        </div>
       </div>
     </main>
     <script src="conditions.js"></script>

@@ -79,7 +79,7 @@ body {
     /* space inside body */
     padding: 0 1em;
     /* each line is similar length */
-    text-align: justify;
+/*    text-align: justify;*/
     /* browser focuses on readability */
     text-rendering: optimizeLegibility;
     /* line length of 60 characters
@@ -178,6 +178,7 @@ th {
 ul {
     margin-top: 0;
     margin-bottom: 0;
+    padding-left: 20px;
 }
 
 h1 {
@@ -186,8 +187,15 @@ h1 {
 }
 
 h2 {
+    font-size: 1.2em;
     margin-bottom: 0;
 }
+
+h3 {
+    font-size: 1.0em;
+    margin-bottom: 0;
+}
+
 
 .container {
   display: flex;
@@ -221,4 +229,8 @@ h2 {
 #reveal_button {
     min-width: 10em;  
     max-width: 10em;
+}
+
+#condition_name {
+    font-weight: bold;
 }

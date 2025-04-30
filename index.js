@@ -99,7 +99,7 @@ for (const symptom of condition.symptoms) {
     selectedSymptoms.push(symptom);
   }
 }
-console.log("Selected symptoms:", selectedSymptoms);
+// console.log("Selected symptoms:", selectedSymptoms);
 
 // in the doc, replace all the values with the new values (don't do this until all values have been modified by symptoms)
 // here to ensure the page is loaded before its code runs
@@ -126,10 +126,11 @@ document.getElementById('reveal_button').addEventListener('click', () => {
   else {
     reveal_hit = true;
 
-    // condition
+    // show the condition
     document.getElementById("condition_name").textContent = condition.name;
-    document.getElementById("condition_description").textContent = ": " + condition.description;
-
+    document.getElementById("condition_description").textContent = condition.description;
+    
+    // the rest of the symptoms
     for (let i = 0; i < hiddenSymptoms.length; ++i) {
         const clone = document.getElementById('hiddenSymptomTemplate').content.cloneNode(true);
         const span = clone.querySelector('span');
@@ -144,7 +145,8 @@ document.getElementById('reveal_button').addEventListener('click', () => {
         document.getElementById("omittedSymptoms").appendChild(clone);
     }
 
-    //treatments
+    // treatments
+    document.getElementById("treatmentsHeader").textContent = "Treatments";
     for (i = 0; i < condition.treatments.length; ++i) {
         let li = document.createElement('li');
         li.innerText = condition.treatments[i];
@@ -152,6 +154,7 @@ document.getElementById('reveal_button').addEventListener('click', () => {
     }
 
     // evacuation guidelines
+    document.getElementById("evacuationGuidelinesHeader").textContent = "Evacuation guidelines";
     for (i = 0; i < condition.evacuationGuidelines.length; ++i) {
         let li = document.createElement('li');
         li.innerText = condition.evacuationGuidelines[i];
