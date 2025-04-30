@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (i = 0; i < selectedSymptoms.length; ++i) {
       let li = document.createElement('li');
-      li.innerText = selectedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
+      li.innerText = selectedSymptoms[i];
       document.getElementById("selectedSymptoms").appendChild(li);
   }
 })
@@ -124,14 +124,14 @@ document.getElementById('reveal_button').addEventListener('click', () => {
   for (let i = 0; i < hiddenSymptoms.length; ++i) {
       const clone = document.getElementById('hiddenSymptomTemplate').content.cloneNode(true);
       const span = clone.querySelector('span');
-      span.innerText = hiddenSymptoms[i].replace(/_/g, " ");
+      span.innerText = hiddenSymptoms[i];
       document.getElementById("hiddenSymptoms").appendChild(clone);
   }
 
   for (let i = 0; i < omittedSymptoms.length; ++i) {
       const clone = document.getElementById('omittedSymptomTemplate').content.cloneNode(true);
       const span = clone.querySelector('span');
-      span.innerText = omittedSymptoms[i].replace(/_/g, " ");
+      span.innerText = omittedSymptoms[i];
       document.getElementById("omittedSymptoms").appendChild(clone);
   }
 
