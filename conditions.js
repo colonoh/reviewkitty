@@ -64,6 +64,7 @@ const conditions = [
       "Consider (giving) fluids"
     ],
     evacuationGuidelines: [
+      "TODO",
     ],
     references: [
       "NOLS Wilderness Medicine, 6th edition"

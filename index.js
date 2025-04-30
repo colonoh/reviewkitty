@@ -9,7 +9,6 @@ Formula for body temperature (in degrees Fahrenheit) from:
     16(2), 122-128. 
 */
 
-
 const percentSymptomsToShow = 0.8;  // show only X% of the total symptoms
 
 const potentialNames = ["Alex", "Andy", "Avery", "Blake", "Casey", "Charlie", "Dakota", "Devin", "Drew", "Elliot", 
@@ -68,7 +67,7 @@ symptoms_loop:
 for (const symptom of condition.symptoms) {
   // if we already have enough symptoms, don't use them
   if ((selectedSymptoms.length + hiddenSymptoms.length + omittedSymptoms.length) >= condition.symptoms.length * percentSymptomsToShow) {
-    omittedSymptoms.push(symptom);
+    omittedSymptoms.push(symptom); // not present in this patient
     continue;
   }
 
@@ -91,16 +90,16 @@ for (const symptom of condition.symptoms) {
         finalPatient[vital_affected] = Math.round(finalPatient[vital_affected]);
       }
     }
-    hiddenSymptoms.push(symptom);
+    hiddenSymptoms.push(symptom); // hidden because it's seen in its effect on the vitals
   } else {
     selectedSymptoms.push(symptom);
   }
 }
 
-// in the doc, replace all the values with the new values (don't do this until all values have been modified by symptoms)
 // here to ensure the page is loaded before its code runs
 document.addEventListener('DOMContentLoaded', () => { 
-  
+  // in the doc, replace all the values with the new values (don't do this until all values have been modified by symptoms)
+  // this relies on the HTML tag ids matching the `finalPatient` keys
   for (const [key, value] of Object.entries(finalPatient)) {
     const element = document.getElementById(key);
     if (element) element.textContent = value;
