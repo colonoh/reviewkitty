@@ -10,8 +10,15 @@
   </head>
   <body>
     <main>
-      <h1>WFR Review</h1>
-      <button type="button" id="reveal_button" onclick="this.disabled = true;">Reveal</button> <button type="button" onClick="window.location.reload();">Next patient</button>
+      <div class="container">
+        <div class="column left">
+          <h1>WFR Review</h1>
+        </div>
+        <div class="column right, buttons_box">
+          <button type="button" id="reveal_button" onclick="this.disabled = true;">Reveal</button> <button type="button" onClick="window.location.reload();">Next patient</button>
+        </div>
+      </div>
+      
 
       <p>
         You have a <span id="age">age</span> year old <span id="sex">sex</span> patient named <span id="name">name</span>.  What condition do you think they have, and what are the treatments and evacuation guidelines?
