@@ -173,9 +173,9 @@ th {
     border-collapse: collapse;
 }
 
-
+/* text with an underline */
 .special_text {
-    border-bottom: 1px dashed white;
+    border-bottom: 1px dotted white;
     cursor: help;
     display: inline
 }

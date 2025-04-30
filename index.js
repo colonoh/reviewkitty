@@ -124,13 +124,21 @@ document.getElementById('reveal_button').addEventListener('click', () => {
   // symptoms
   for (i = 0; i < hiddenSymptoms.length; ++i) {
       let li = document.createElement('li');
-      li.innerText = hiddenSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
+      let span = document.createElement('span');
+      span.className = 'special_text';
+      span.title = 'Symptoms which modify a vital sign (e.g. rapid heart rate) are not written out but their effect can be seen in the patient\'s vitals';
+      span.innerText = hiddenSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
+      li.appendChild(span);
       document.getElementById("hiddenSymptoms").appendChild(li);
   }
 
   for (i = 0; i < omittedSymptoms.length; ++i) {
       let li = document.createElement('li');
-      li.innerText = omittedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
+      let span = document.createElement('span');
+      span.className = 'special_text';
+      span.title = 'This symptom was not present in this patient';
+      span.innerText = omittedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
+      li.appendChild(span);
       document.getElementById("omittedSymptoms").appendChild(li);
   }
   // treatments
