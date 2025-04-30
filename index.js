@@ -60,28 +60,40 @@ const condition = conditions[Math.floor(Math.random() * conditions.length)];
 // pick a subset of the symptoms
 shuffleArray(condition.symptoms); // randomize the order of the symptoms
 let selectedSymptoms = [];
+let hiddenSymptoms = [];
+let omittedSymptoms = [];
 symptoms_loop:
 for (const symptom of condition.symptoms) {
-  if (selectedSymptoms.length >= condition.symptoms.length * percentSymptomsToShow) break;  // stop if we have enough symptoms
+  // if we already have enough symptoms, don't use them
+  if (selectedSymptoms.length >= condition.symptoms.length * percentSymptomsToShow) {
+    omittedSymptoms.push(symptom);
+  }
 
   // before selecting this symptom, check if it affects any symptoms which have already been affected
   for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
     // console.log(vital_affected, how);
     if (finalPatient[vital_affected] !== basePatient[vital_affected]) {
       console.log(vital_affected, "already modified!", basePatient[vital_affected], finalPatient[vital_affected]);
+      omittedSymptoms.push(symptom);
       continue symptoms_loop; // skip the rest of the outer for loop
     }
   }
+
   // okay, choose this symptom and apply it's effects
-  // console.log("Selecting ", symptom);
-  selectedSymptoms.push(symptom);
-  for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
-    if (typeof how === 'string') { 
-      finalPatient[vital_affected] = how;  // text values replace the current value
-    } else {
-      finalPatient[vital_affected] *= how;  // non-text values (e.g. float) modify the value
-      finalPatient[vital_affected] = Math.round(finalPatient[vital_affected]);
+  console.log("Selecting ", symptom);
+  // console.log(symptoms[symptom]);
+  if (Object.keys(symptoms[symptom]).length) {  // if this symptom affects any vitals
+    for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
+      if (typeof how === 'string') { 
+        finalPatient[vital_affected] = how;  // text values replace the current value
+      } else {
+        finalPatient[vital_affected] *= how;  // non-text values (e.g. float) modify the value
+        finalPatient[vital_affected] = Math.round(finalPatient[vital_affected]);
+      }
     }
+    hiddenSymptoms.push(symptom);
+  } else {
+    selectedSymptoms.push(symptom);
   }
 }
 console.log("Selected symptoms:", selectedSymptoms);
@@ -98,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   for (i = 0; i < selectedSymptoms.length; ++i) {
       let li = document.createElement('li');
       li.innerText = selectedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
-      document.getElementById("selected_symptoms").appendChild(li);
+      document.getElementById("selectedSymptoms").appendChild(li);
   }
 })
 
@@ -108,6 +120,18 @@ document.getElementById('reveal_button').addEventListener('click', () => {
   document.getElementById("condition_name").textContent = condition.name;
   document.getElementById("condition_description").textContent = ": " + condition.description;
 
+  // symptoms
+  for (i = 0; i < hiddenSymptoms.length; ++i) {
+      let li = document.createElement('li');
+      li.innerText = hiddenSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
+      document.getElementById("hiddenSymptoms").appendChild(li);
+  }
+
+  for (i = 0; i < omittedSymptoms.length; ++i) {
+      let li = document.createElement('li');
+      li.innerText = omittedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
+      document.getElementById("omittedSymptoms").appendChild(li);
+  }
   // treatments
   for (i = 0; i < condition.treatments.length; ++i) {
       let li = document.createElement('li');
