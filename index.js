@@ -74,23 +74,20 @@ for (const symptom of condition.symptoms) {
 
   // before selecting this symptom, check if it affects any symptoms which have already been affected
   for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
-    // console.log(vital_affected, how);
     if (finalPatient[vital_affected] !== basePatient[vital_affected]) {
-      console.log(vital_affected, "already modified!", basePatient[vital_affected], finalPatient[vital_affected]);
       omittedSymptoms.push(symptom);
       continue symptoms_loop; // skip the rest of the outer for loop
     }
   }
 
   // okay, choose this symptom and apply it's effects
-  console.log("Selecting ", symptom);
-  // console.log(symptoms[symptom]);
   if (Object.keys(symptoms[symptom]).length) {  // if this symptom affects any vitals
+    // for each vital affected, figure out how to modify the relevant vital
     for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
       if (typeof how === 'string') { 
         finalPatient[vital_affected] = how;  // text values replace the current value
       } else {
-        finalPatient[vital_affected] *= how;  // non-text values (e.g. float) modify the value
+        finalPatient[vital_affected] *= how;  // non-text values (e.g. float) multiply the value
         finalPatient[vital_affected] = Math.round(finalPatient[vital_affected]);
       }
     }
@@ -99,7 +96,6 @@ for (const symptom of condition.symptoms) {
     selectedSymptoms.push(symptom);
   }
 }
-// console.log("Selected symptoms:", selectedSymptoms);
 
 // in the doc, replace all the values with the new values (don't do this until all values have been modified by symptoms)
 // here to ensure the page is loaded before its code runs

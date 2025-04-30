@@ -4,7 +4,7 @@ const symptoms = {
   "rapid pulse": {"heartRate": 1.5},
   "pale, cool, clammy skin": {"skinColor": "pale", "skinTemperature": "cool", "skinMoisture": "clammy"},
   "slow pulse": {"heartRate": .5},
-  "weak pulse": {"heartStrength": "weak"},
+  "weak pulse": {"heartStrength": "weak", "bloodPressure": "weak radial pulse"},
   "irregular pulse": {"heartRhythm": "irregular"},
   "rapid breathing": {"respiratoryRate": 1.5},
   "shallow breathing": {"respiratoryEffort": "shallow"},
