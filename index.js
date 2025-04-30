@@ -65,8 +65,9 @@ let omittedSymptoms = [];
 symptoms_loop:
 for (const symptom of condition.symptoms) {
   // if we already have enough symptoms, don't use them
-  if (selectedSymptoms.length >= condition.symptoms.length * percentSymptomsToShow) {
+  if ((selectedSymptoms.length + hiddenSymptoms.length + omittedSymptoms.length) >= condition.symptoms.length * percentSymptomsToShow) {
     omittedSymptoms.push(symptom);
+    continue;
   }
 
   // before selecting this symptom, check if it affects any symptoms which have already been affected
