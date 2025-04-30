@@ -217,3 +217,8 @@ h2 {
     display: inline;
 /*    text-decoration: line-through;*/
 }
+
+#reveal_button {
+    min-width: 10em;  
+    max-width: 10em;
+}

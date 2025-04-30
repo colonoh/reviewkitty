@@ -31,6 +31,8 @@ const sex = Math.random() < 0.5 ? 'male' : 'female';
 const S = sex === "male" ? 0 : 1;  // for body temp formula, 1 for males
 const eps = Math.random() * 0.5;  // randomness for body temp
 
+let reveal_hit = false;
+
 const basePatient = {
   'age': age,
   'sex': sex,
@@ -117,6 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // runs when the `reveal` button is pressed`
 document.getElementById('reveal_button').addEventListener('click', () => {
+
+  // the first time the button is hit, it does the rest of the code
+  // the second time, it reloads the page
+  reveal_hit === true ? window.location.reload() : reveal_hit = true;
+
   // condition
   document.getElementById("condition_name").textContent = condition.name;
   document.getElementById("condition_description").textContent = ": " + condition.description;
