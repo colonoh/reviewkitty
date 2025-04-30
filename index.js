@@ -121,27 +121,21 @@ document.getElementById('reveal_button').addEventListener('click', () => {
   document.getElementById("condition_name").textContent = condition.name;
   document.getElementById("condition_description").textContent = ": " + condition.description;
 
-  // symptoms
-  for (i = 0; i < hiddenSymptoms.length; ++i) {
-      let li = document.createElement('li');
-      let span = document.createElement('span');
-      span.className = 'hidden_symptom';
-      span.title = 'Symptoms which modify a vital sign (e.g. rapid heart rate) are not written out but their effect can be seen in the patient\'s vitals';
-      span.innerText = hiddenSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
-      li.appendChild(span);
-      document.getElementById("hiddenSymptoms").appendChild(li);
+  for (let i = 0; i < hiddenSymptoms.length; ++i) {
+      const clone = document.getElementById('hiddenSymptomTemplate').content.cloneNode(true);
+      const span = clone.querySelector('span');
+      span.innerText = hiddenSymptoms[i].replace(/_/g, " ");
+      document.getElementById("hiddenSymptoms").appendChild(clone);
   }
 
-  for (i = 0; i < omittedSymptoms.length; ++i) {
-      let li = document.createElement('li');
-      let span = document.createElement('span');
-      span.className = 'omitted_symptom';
-      span.title = 'This symptom was not present in this patient';
-      span.innerText = omittedSymptoms[i].replace(/_/g, " "); // replace undscores with spaces in the symptom
-      li.appendChild(span);
-      document.getElementById("omittedSymptoms").appendChild(li);
+  for (let i = 0; i < omittedSymptoms.length; ++i) {
+      const clone = document.getElementById('omittedSymptomTemplate').content.cloneNode(true);
+      const span = clone.querySelector('span');
+      span.innerText = omittedSymptoms[i].replace(/_/g, " ");
+      document.getElementById("omittedSymptoms").appendChild(clone);
   }
-  // treatments
+
+  //treatments
   for (i = 0; i < condition.treatments.length; ++i) {
       let li = document.createElement('li');
       li.innerText = condition.treatments[i];

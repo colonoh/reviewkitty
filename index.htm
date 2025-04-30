@@ -25,9 +25,16 @@
           <ul id="selectedSymptoms">
           </ul>
           <ul id="hiddenSymptoms">
+            <template id="hiddenSymptomTemplate">
+              <li><span class="hidden_symptom" title="Symptoms which modify a vital sign (e.g. rapid heart rate) are not written out but their effect can be seen in the patient's vitals"></span></li>
+            </template>
           </ul>
           <ul id="omittedSymptoms">
+            <template id="omittedSymptomTemplate">
+              <li><span class="omitted_symptom" title="This symptom was not present in this patient"></span></li>
+            </template>
           </ul>
+
         </div>
         <div class="column right">
           <h2>Vitals</h2>
