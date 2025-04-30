@@ -11,6 +11,11 @@ const symptoms = {
   "anxiety": {},
   "restlessness": {},
   "thirst": {},
+  "fever": {},
+  "headache": {},
+  "muscle aches": {},
+  "vomiting": {},  
+  "difficulty breathing": {"respiratoryEffort": "labored"},
 };
 
 const conditions = [
@@ -51,6 +56,7 @@ const conditions = [
       "thirst"    
     ],
     treatments: [
+      "Treat the underlying cause",
       "Maintain ABCs - airway, breathing, circulation",
       "Control bleeding, stabilize fractures",
       "Protect patient temperature within normal limits",
@@ -58,6 +64,27 @@ const conditions = [
       "Consider (giving) fluids"
     ],
     evacuationGuidelines: [
+    ],
+    references: [
+      "NOLS Wilderness Medicine, 6th edition"
+    ]
+  },
+  {
+    name: "Hantavirus",
+    description: "Virus that produces a serious respiratory disease passed from the rodent reservoir to humans through inhalation of microscopic particles.",
+    symptoms: [
+      "fever",
+      "headache",
+      "muscle aches",
+      "nausea",
+      "vomiting",
+      "difficulty breathing"    
+    ],
+    treatments: [
+      "TODO",
+    ],
+    evacuationGuidelines: [
+      "TODO",
     ],
     references: [
       "NOLS Wilderness Medicine, 6th edition"
