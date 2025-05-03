@@ -1,21 +1,33 @@
 const symptoms = {
-  "nausea": {},
-  "discomfort in the neck": {},
-  "rapid pulse": {"heartRate": 1.5},
-  "pale, cool, clammy skin": {"skinColor": "pale", "skinTemperature": "cool", "skinMoisture": "clammy"},
-  "slow pulse": {"heartRate": .5},
-  "weak pulse": {"heartStrength": "weak", "bloodPressure": "weak radial pulse"},
-  "irregular pulse": {"heartRhythm": "irregular"},
-  "rapid breathing": {"respiratoryRate": 1.5},
-  "shallow breathing": {"respiratoryEffort": "shallow"},
-  "anxiety": {},
-  "restlessness": {},
-  "thirst": {},
-  "fever": {},
-  "headache": {},
-  "muscle aches": {},
-  "vomiting": {},  
-  "difficulty breathing": {"respiratoryEffort": "labored"},
+  "Nausea": {},
+  "Discomfort in the neck": {},
+  "Rapid pulse": {"heartRate": 1.5},
+  "Pale, cool, clammy skin": {"skinColor": "pale", "skinTemperature": "cool", "skinMoisture": "clammy"},
+  "Slow pulse": {"heartRate": .5},
+  "Weak pulse": {"heartStrength": "weak", "bloodPressure": "weak radial pulse"},
+  "Irregular pulse": {"heartRhythm": "irregular"},
+  "Rapid breathing": {"respiratoryRate": 1.5},
+  "Shallow breathing": {"respiratoryEffort": "shallow"},
+  "Anxiety": {},
+  "Restlessness": {},
+  "Thirst": {},
+  "Fever": {},
+  "Headache": {},
+  "Muscle aches": {},
+  "Vomiting": {},  
+  "Difficulty breathing": {"respiratoryEffort": "labored"},
+  "A sense of suffocation": {},
+  "Rapid and deep breathing": {"respiratoryRate": 1.5, "respiratoryEffort": "deep"},
+  "Dizziness": {},
+  "Faintness": {},
+  "Sweating": {"skinMoisture": "sweaty"},
+  "Dry mouth": {},
+  "Numbness of the hands": {},
+  "Tingling of the hands": {},
+  "Numbness of the mouth": {},
+  "Tingling of the mouth": {},
+  "Hands curl inward and become immobile": {}, // carpopedal spasms
+  "Stabbing chest pain": {},
 };
 
 const conditions = [
@@ -23,10 +35,10 @@ const conditions = [
     name: "Angina",
     description: "Pain from diminished blood flow to the heart.",
     symptoms: [
-      "nausea",
-      "discomfort in the neck",
-      "rapid pulse",
-      "pale, cool, clammy skin"
+      "Nausea",
+      "Discomfort in the neck",
+      "Rapid pulse",
+      "Pale, cool, clammy skin"
     ],
     treatments: [
       "Reduce anxiety and activity",
@@ -43,17 +55,17 @@ const conditions = [
     name: "Shock (early stages)",
     description: "The inadequate perfusion of tissue with oxygenated blood, due to a failure of the heart, blood vessels, and/or blood - to deliver oxygenated blood to the tissues.",
     symptoms: [
-      "pale, cool, clammy skin",
-      "rapid pulse",
-      "slow pulse",
-      "weak pulse",
-      "irregular pulse",
-      "rapid breathing",
-      "shallow breathing",
-      "anxiety",
-      "restlessness",
-      "nausea",
-      "thirst"    
+      "Pale, cool, clammy skin",
+      "Rapid pulse",
+      "Slow pulse",
+      "Weak pulse",
+      "Irregular pulse",
+      "Rapid breathing",
+      "Shallow breathing",
+      "Anxiety",
+      "Restlessness",
+      "Nausea",
+      "Thirst"    
     ],
     treatments: [
       "Treat the underlying cause",
@@ -74,18 +86,49 @@ const conditions = [
     name: "Hantavirus",
     description: "Virus that produces a serious respiratory disease passed from the rodent reservoir to humans through inhalation of microscopic particles.",
     symptoms: [
-      "fever",
-      "headache",
-      "muscle aches",
-      "nausea",
-      "vomiting",
-      "difficulty breathing"    
+      "Fever",
+      "Headache",
+      "Muscle aches",
+      "Nausea",
+      "Vomiting",
+      "Difficulty breathing"
     ],
     treatments: [
       "TODO",
     ],
     evacuationGuidelines: [
       "TODO",
+    ],
+    references: [
+      "NOLS Wilderness Medicine, 6th edition"
+    ]
+  },
+  {
+    name: "Hyperventilation",
+    description: "An increased respiratory rate often caused by an emotional stimulus.",
+    symptoms: [
+      "Anxiety",
+      "A sense of suffocation",
+      "Rapid and deep breathing",
+      "Rapid pulse",
+      "Sweating",
+      "Dry mouth",
+      "Numbness of the hands",
+      "Tingling of the hands",
+      "Numbness of the mouth",
+      "Tingling of the mouth",
+      "Hands curl inward and become immobile",
+      "Stabbing chest pain",
+    ],
+    treatments: [
+      "Calm the patient",
+      "Slow their breathing",
+      "Coach them to slow their breathing",
+      "Calm the patient",
+    ],
+    evacuationGuidelines: [
+      "Evacuate any patient with chest pain that is not clearly musculoskeletal, pulmonary, or gastrointestinal.",
+      "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes."
     ],
     references: [
       "NOLS Wilderness Medicine, 6th edition"
