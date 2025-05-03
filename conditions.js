@@ -143,7 +143,7 @@ const conditions = [
     references: [
       "NOLS Wilderness Medicine, 6th edition"
     ]
-  }
+  },
   {
     name: "Asthma (mild to moderate)",
     description: "Characterized by narrowing of the airways, increased mucus production, and bronchial edema (swelling or inflammation of the bronchial tubes).",
@@ -177,7 +177,7 @@ const conditions = [
       "Chest tightness",
       "Shortness of breath",
       "Rapid breathing",
-      "Increased muscus production"
+      "Increased muscus production",
       "Sleepiness",
       "Hunched over",
       "Diminished lung sounds",
@@ -194,7 +194,7 @@ const conditions = [
     ],
     evacuationGuidelines: [
       "Evacuate any patient with chest pain that is not clearly musculoskeletal, pulmonary, or gastrointestinal.",
-      "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes."
+      "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes.",
       "Expedite evacuation if a severe asthma attack is unresponsive to medications."
     ],
     references: [
