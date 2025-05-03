@@ -231,3 +231,14 @@ const conditions = [
     ]
   }
 ];
+
+/* TODO
+uti
+testicular torsion
+epididymitis
+mittelschmerz
+dysmenorrhea
+vaginitis
+ectopic pregnancy
+spontaneous pneumothorax
+*/
