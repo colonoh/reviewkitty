@@ -17,10 +17,12 @@ const symptoms = {
   "Hunched over": {},
   "Increased muscus production": {},
   "Irregular pulse": {"heartRhythm": "irregular"},
+  "Labored breathing": {"respiratoryEffort": "labored"},
   "Muscle aches": {},
   "Nausea": {},
   "Numbness of the hands": {},
   "Numbness of the mouth": {},
+  "Pain with inspiration": {},
   "Pale, cool, clammy skin": {"skinColor": "pale", "skinTemperature": "cool", "skinMoisture": "clammy"},
   "Rapid and deep breathing": {"respiratoryRate": 1.5, "respiratoryEffort": "deep"},
   "Rapid breathing": {"respiratoryRate": 1.5},
@@ -31,6 +33,7 @@ const symptoms = {
   "Sleepiness": {},
   "Slow pulse": {"heartRate": .5},
   "Stabbing chest pain": {},
+  "Sudden shortness of breath": {"respiratoryRate": 1.5, "respiratoryRhythm": "irregular", "respiratoryEffort": "labored"}, // dyspnea
   "Sweating": {"skinMoisture": "sweaty"},
   "Thirst": {},
   "Tingling of the hands": {},
@@ -153,6 +156,7 @@ const conditions = [
       "Chest tightness",
       "Shortness of breath",
       "Rapid breathing",
+      "Rapid pulse",
       "Increased muscus production"
     ],
     treatments: [
@@ -177,6 +181,7 @@ const conditions = [
       "Chest tightness",
       "Shortness of breath",
       "Rapid breathing",
+      "Rapid pulse",
       "Increased muscus production",
       "Sleepiness",
       "Hunched over",
@@ -196,6 +201,30 @@ const conditions = [
       "Evacuate any patient with chest pain that is not clearly musculoskeletal, pulmonary, or gastrointestinal.",
       "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes.",
       "Expedite evacuation if a severe asthma attack is unresponsive to medications."
+    ],
+    references: [
+      "NOLS Wilderness Medicine, 6th edition"
+    ]
+  },
+  {
+    name: "Pulmonary Embolism",
+    description: "Occurs when a clot (usually from a leg vein) breaks loose and lodges in the blood vessels of the lung.",
+    symptoms: [
+      "Sudden shortness of breath",
+      "Pain with inspiration",
+      "Anxiety",
+      "Restlessness",
+      "Rapid breathing",
+      "Rapid pulse",
+      "Pale, cool, clammy skin",
+      "Labored breathing",
+    ],
+    treatments: [
+      "Administer oxygen if available",
+    ],
+    evacuationGuidelines: [
+      "Can't be treated in the field",
+      "Evacuate promptly",
     ],
     references: [
       "NOLS Wilderness Medicine, 6th edition"

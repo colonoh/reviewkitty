@@ -57,7 +57,7 @@ let finalPatient = structuredClone(basePatient);  // copy the default values but
 // pick a random condition
 // TODO: pick a condition filtering for the sex
 const condition = conditions[Math.floor(Math.random() * conditions.length)];
-
+console.log("Selecting ", condition);
 // pick a subset of the symptoms
 shuffleArray(condition.symptoms); // randomize the order of the symptoms
 let selectedSymptoms = [];
@@ -72,6 +72,7 @@ for (const symptom of condition.symptoms) {
   }
 
   // before selecting this symptom, check if it affects any symptoms which have already been affected
+  console.log("Symptom", symptom, symptoms[symptom]);
   for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
     if (finalPatient[vital_affected] !== basePatient[vital_affected]) {
       omittedSymptoms.push(symptom);
