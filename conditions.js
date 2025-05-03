@@ -28,6 +28,17 @@ const symptoms = {
   "Tingling of the mouth": {},
   "Hands curl inward and become immobile": {}, // carpopedal spasms
   "Stabbing chest pain": {},
+  "Wheezing": {},
+  "Coughing": {},
+  "Chest tightness": {},
+  "Shortness of breath": {"respiratoryRate": 1.5, "respiratoryRhythm": "irregular", "respiratoryEffort": "labored"}, // dyspnea
+  "Increased muscus production": {},
+  "Sleepiness": {},
+  "Hunched over": {},
+  "Diminished lung sounds": {},
+  "Can only speak in one or two word clusters": {},
+  "Cyanosis": {"skinColor": "blue"},
+  
 };
 
 const conditions = [
@@ -124,11 +135,67 @@ const conditions = [
       "Calm the patient",
       "Slow their breathing",
       "Coach them to slow their breathing",
-      "Calm the patient",
     ],
     evacuationGuidelines: [
       "Evacuate any patient with chest pain that is not clearly musculoskeletal, pulmonary, or gastrointestinal.",
       "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes."
+    ],
+    references: [
+      "NOLS Wilderness Medicine, 6th edition"
+    ]
+  }
+  {
+    name: "Asthma (mild to moderate)",
+    description: "Characterized by narrowing of the airways, increased mucus production, and bronchial edema (swelling or inflammation of the bronchial tubes).",
+    symptoms: [
+      "Wheezing",
+      "Coughing",
+      "Chest tightness",
+      "Shortness of breath",
+      "Rapid breathing",
+      "Increased muscus production"
+    ],
+    treatments: [
+      "Have patient self-administer medication (bronchodilator) with an inhaler",
+      "Help the patient relax",
+      "Warm, humidified air, can help relax airways and clear mucus",
+    ],
+    evacuationGuidelines: [
+      "Evacuate any patient with chest pain that is not clearly musculoskeletal, pulmonary, or gastrointestinal.",
+      "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes."
+    ],
+    references: [
+      "NOLS Wilderness Medicine, 6th edition"
+    ]
+  },
+  {
+    name: "Asthma (severe)",
+    description: "Characterized by narrowing of the airways, increased mucus production, and bronchial edema (swelling or inflammation of the bronchial tubes).",
+    symptoms: [
+      "Sleepiness",
+      "Coughing",
+      "Chest tightness",
+      "Shortness of breath",
+      "Rapid breathing",
+      "Increased muscus production"
+      "Sleepiness",
+      "Hunched over",
+      "Diminished lung sounds",
+      "Can only speak in one or two word clusters",
+      "Cyanosis",
+
+    ],
+    treatments: [
+      "Have patient self-administer medication (bronchodilator) with an inhaler",
+      "Help the patient relax",
+      "Warm, humidified air, can help relax airways and clear mucus",
+      "Epinephrine",
+      "Steroids"
+    ],
+    evacuationGuidelines: [
+      "Evacuate any patient with chest pain that is not clearly musculoskeletal, pulmonary, or gastrointestinal.",
+      "Expedite evacuation for any patient with chest pain that does not relieve within 20 minutes."
+      "Expedite evacuation if a severe asthma attack is unresponsive to medications."
     ],
     references: [
       "NOLS Wilderness Medicine, 6th edition"
