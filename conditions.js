@@ -16,8 +16,9 @@ const symptoms = {
   "Excessive urination": {},
   "Exhaustion": {},
   "Faintness": {},
+  "Fast heart rate (tachycardia)": {"heartRate": 1.7},  // should be >100, so 60*17=102
   "Fever": {},
-  "Hands curl inward and become immobile": {}, // carpopedal spasms
+  "Hands curl inward and become immobile (carpopedal spasms)": {},
   "Headache": {},
   "Hunched over": {},
   "Increased muscus production": {},
@@ -31,7 +32,7 @@ const symptoms = {
   "Pale skin color": {"skinColor": "pale"},
   "Pale, cool, clammy skin": {"skinColor": "pale", "skinTemperature": "cool", "skinMoisture": "clammy"},
   "Rapid and deep breathing": {"respiratoryRate": 1.5, "respiratoryEffort": "deep"},
-  "Rapid breathing": {"respiratoryRate": 1.5},
+  "Rapid breathing (tachypnea)": {"respiratoryRate": 2.1}, // should be >25, 12*2.1=25.2
   "Restlessness": {},
   "Shallow breathing": {"respiratoryEffort": "shallow"},
   "Shivering and chattering teeth": {},
@@ -94,7 +95,7 @@ const conditions = [
     symptoms: [
       "Nausea",
       "Discomfort in the neck",
-      "Rapid pulse",
+      "Fast heart rate (tachycardia)",
       "Pale, cool, clammy skin"
     ],
     treatments: [
@@ -113,11 +114,11 @@ const conditions = [
     description: "The inadequate perfusion of tissue with oxygenated blood, due to a failure of the heart, blood vessels, and/or blood - to deliver oxygenated blood to the tissues.",
     symptoms: [
       "Pale, cool, clammy skin",
-      "Rapid pulse",
+      "Fast heart rate (tachycardia)",
       "Slow pulse",
       "Weak pulse",
       "Irregular pulse",
-      "Rapid breathing",
+      "Rapid breathing (tachypnea)",
       "Shallow breathing",
       "Anxiety",
       "Restlessness",
@@ -168,14 +169,14 @@ const conditions = [
       "Anxiety",
       "A sense of suffocation",
       "Rapid and deep breathing",
-      "Rapid pulse",
+      "Fast heart rate (tachycardia)",
       "Sweating",
       "Dry mouth",
       "Numbness of the hands",
       "Tingling of the hands",
       "Numbness of the mouth",
       "Tingling of the mouth",
-      "Hands curl inward and become immobile",
+      "Hands curl inward and become immobile (carpopedal spasms)",
       "Stabbing chest pain",
     ],
     treatments: [
@@ -199,8 +200,8 @@ const conditions = [
       "Coughing",
       "Chest tightness",
       "Shortness of breath",
-      "Rapid breathing",
-      "Rapid pulse",
+      "Rapid breathing (tachypnea)",
+      "Fast heart rate (tachycardia)",
       "Increased muscus production"
     ],
     treatments: [
@@ -224,8 +225,8 @@ const conditions = [
       "Coughing",
       "Chest tightness",
       "Shortness of breath",
-      "Rapid breathing",
-      "Rapid pulse",
+      "Rapid breathing (tachypnea)",
+      "Fast heart rate (tachycardia)",
       "Increased muscus production",
       "Sleepiness",
       "Hunched over",
@@ -258,8 +259,8 @@ const conditions = [
       "Pain with inspiration",
       "Anxiety",
       "Restlessness",
-      "Rapid breathing",
-      "Rapid pulse",
+      "Rapid breathing (tachypnea)",
+      "Fast heart rate (tachycardia)",
       "Pale, cool, clammy skin",
       "Labored breathing",
     ],
