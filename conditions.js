@@ -4,11 +4,17 @@ const symptoms = {
   "Can only speak in one or two word clusters": {},
   "Chest tightness": {},
   "Clumsiness, slow movements and reactions": {},
-  "Cold body temperature (between 95°F and 89.6°F)": {"bodyTemperature": 0.95},
+  "Cold body temperature (between 95\u00b0F and 89.6\u00b0F)": {
+    "bodyTemperature": 0.95
+  },
   "Confusion and poor judgment/loss of awareness": {},
   "Coughing": {},
-  "Cyanosis": {"skinColor": "blue"},
-  "Difficulty breathing": {"respiratoryEffort": "labored"},
+  "Cyanosis": {
+    "skinColor": "blue"
+  },
+  "Difficulty breathing": {
+    "respiratoryEffort": "labored"
+  },
   "Diminished lung sounds": {},
   "Discomfort in the neck": {},
   "Dizziness": {},
@@ -16,47 +22,80 @@ const symptoms = {
   "Excessive urination": {},
   "Exhaustion": {},
   "Faintness": {},
-  "Fast heart rate (tachycardia)": {"heartRate": 1.7}, 
+  "Fast heart rate (tachycardia)": {
+    "heartRate": 1.7
+  },
   "Fever": {},
   "Hands curl inward and become immobile (carpopedal spasms)": {},
   "Headache": {},
   "Hunched over": {},
   "Increased mucus production": {},
-  "Irregular pulse": {"heartRhythm": "irregular"},
-  "Labored breathing": {"respiratoryEffort": "labored"},
+  "Irregular pulse": {
+    "heartRhythm": "irregular"
+  },
+  "Labored breathing": {
+    "respiratoryEffort": "labored"
+  },
   "Muscle aches": {},
   "Nausea": {},
   "Numbness of the hands": {},
   "Numbness of the mouth": {},
   "Pain with inspiration": {},
-  "Pale skin color": {"skinColor": "pale"},
-  "Pale, cool, clammy skin": {"skinColor": "pale", "skinTemperature": "cool", "skinMoisture": "clammy"},
-  "Rapid and deep breathing": {"respiratoryRate": 1.5, "respiratoryEffort": "deep"},
-  "Rapid breathing (tachypnea)": {"respiratoryRate": 2.1},
+  "Pale skin color": {
+    "skinColor": "pale"
+  },
+  "Pale, cool, clammy skin": {
+    "skinColor": "pale",
+    "skinTemperature": "cool",
+    "skinMoisture": "clammy"
+  },
+  "Rapid and deep breathing": {
+    "respiratoryRate": 1.5,
+    "respiratoryEffort": "deep"
+  },
+  "Rapid breathing (tachypnea)": {
+    "respiratoryRate": 2.1
+  },
   "Restlessness": {},
-  "Shallow breathing": {"respiratoryEffort": "shallow"},
+  "Shallow breathing": {
+    "respiratoryEffort": "shallow"
+  },
   "Shivering and chattering teeth": {},
-  "Shortness of breath (dyspnea)": {"respiratoryRate": 1.5, "respiratoryRhythm": "irregular", "respiratoryEffort": "labored"},
+  "Shortness of breath (dyspnea)": {
+    "respiratoryRate": 1.5,
+    "respiratoryRhythm": "irregular",
+    "respiratoryEffort": "labored"
+  },
   "Sleepiness": {},
-  "Slow pulse": {"heartRate": 0.5},
+  "Slow pulse": {
+    "heartRate": 0.5
+  },
   "Stabbing chest pain": {},
-  "Sudden shortness of breath (dyspnea)": {"respiratoryRate": 1.5, "respiratoryRhythm": "irregular", "respiratoryEffort": "labored"},
-  "Sweating": {"skinMoisture": "sweaty"},
+  "Sudden shortness of breath (dyspnea)": {
+    "respiratoryRate": 1.5,
+    "respiratoryRhythm": "irregular",
+    "respiratoryEffort": "labored"
+  },
+  "Sweating": {
+    "skinMoisture": "sweaty"
+  },
   "Thirst": {},
   "Tingling of the hands": {},
   "Tingling of the mouth": {},
   "Trouble speaking": {},
-  "Vomiting": {},  
-  "Weak pulse": {"heartStrength": "weak", "bloodPressure": "weak radial pulse"},
+  "Vomiting": {},
+  "Weak pulse": {
+    "heartStrength": "weak",
+    "bloodPressure": "weak radial pulse"
+  },
   "Wheezing": {}
 };
-
 const conditions = [
   {
     "name": "Hypothermia (mild)",
     "description": "A cooling of the body's core to a temperature where brain and or muscle function is impaired.",
     "symptoms": [
-      "Cold body temperature (between 95°F and 89.6°F)",
+      "Cold body temperature (between 95\u00b0F and 89.6\u00b0F)",
       "Shivering and chattering teeth",
       "Exhaustion",
       "Clumsiness, slow movements and reactions",
@@ -232,7 +271,6 @@ const conditions = [
       "Diminished lung sounds",
       "Can only speak in one or two word clusters",
       "Cyanosis"
-
     ],
     "treatments": [
       "Have patient self-administer medication (bronchodilator) with an inhaler",
