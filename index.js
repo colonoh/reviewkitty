@@ -72,8 +72,8 @@ for (const symptom of condition.symptoms) {
   }
 
   // before selecting this symptom, check if it affects any symptoms which have already been affected
-  console.log("Symptom", symptom, symptoms[symptom]);
-  for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
+  console.log("Symptom", symptom, symptomRegistry[symptom].vitalEffects);
+  for (const [vital_affected, how] of Object.entries(symptomRegistry[symptom].vitalEffects)) {
     if (finalPatient[vital_affected] !== basePatient[vital_affected]) {
       omittedSymptoms.push(symptom);
       continue symptoms_loop; // skip the rest of the outer for loop
@@ -81,9 +81,9 @@ for (const symptom of condition.symptoms) {
   }
 
   // okay, choose this symptom and apply it's effects
-  if (Object.keys(symptoms[symptom]).length) {  // if this symptom affects any vitals
+  if (Object.keys(symptomRegistry[symptom].vitalEffects).length) {  // if this symptom affects any vitals
     // for each vital affected, figure out how to modify the relevant vital
-    for (const [vital_affected, how] of Object.entries(symptoms[symptom])) {
+    for (const [vital_affected, how] of Object.entries(symptomRegistry[symptom].vitalEffects)) {
       if (typeof how === 'string') { 
         finalPatient[vital_affected] = how;  // text values replace the current value
       } else {

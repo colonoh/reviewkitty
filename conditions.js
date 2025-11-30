@@ -1,97 +1,198 @@
-const symptoms = {
-  "A sense of suffocation": {},
-  "Anxiety": {},
-  "Can only speak in one or two word clusters": {},
-  "Chest tightness": {},
-  "Clumsiness, slow movements and reactions": {},
-  "Cold body temperature (between 95\u00b0F and 89.6\u00b0F)": {
-    "bodyTemperature": 0.95
+const symptomRegistry = {
+  "A sense of suffocation": {
+    vitalEffects: {}
   },
-  "Confusion and poor judgment/loss of awareness": {},
-  "Coughing": {},
+  "Anxiety": {
+    vitalEffects: {}
+  },
+  "Can only speak in one or two word clusters": {
+    vitalEffects: {}
+  },
+  "Chest tightness": {
+    vitalEffects: {}
+  },
+  "Clumsiness, slow movements and reactions": {
+    vitalEffects: {}
+  },
+  "Cold body temperature (between 95\u00b0F and 89.6\u00b0F)": {
+    vitalEffects: {
+      "bodyTemperature": 0.95
+    }
+  },
+  "Confusion and poor judgment/loss of awareness": {
+    vitalEffects: {}
+  },
+  "Coughing": {
+    vitalEffects: {}
+  },
   "Cyanosis": {
-    "skinColor": "blue"
+    vitalEffects: {
+      "skinColor": "blue"
+    }
   },
   "Difficulty breathing": {
-    "respiratoryEffort": "labored"
+    vitalEffects: {
+      "respiratoryEffort": "labored"
+    }
   },
-  "Diminished lung sounds": {},
-  "Discomfort in the neck": {},
-  "Dizziness": {},
-  "Dry mouth": {},
-  "Excessive urination": {},
-  "Exhaustion": {},
-  "Faintness": {},
+  "Diminished lung sounds": {
+    vitalEffects: {}
+  },
+  "Discomfort in the neck": {
+    vitalEffects: {}
+  },
+  "Dizziness": {
+    vitalEffects: {}
+  },
+  "Dry mouth": {
+    vitalEffects: {}
+  },
+  "Excessive urination": {
+    vitalEffects: {}
+  },
+  "Exhaustion": {
+    vitalEffects: {}
+  },
+  "Faintness": {
+    vitalEffects: {}
+  },
   "Fast heart rate (tachycardia)": {
-    "heartRate": 1.7
+    vitalEffects: {
+      "heartRate": 1.7
+    }
   },
-  "Fever": {},
-  "Hands curl inward and become immobile (carpopedal spasms)": {},
-  "Headache": {},
-  "Hunched over": {},
-  "Increased mucus production": {},
+  "Fever": {
+    vitalEffects: {}
+  },
+  "Hands curl inward and become immobile (carpopedal spasms)": {
+    vitalEffects: {}
+  },
+  "Headache": {
+    vitalEffects: {}
+  },
+  "Hunched over": {
+    vitalEffects: {}
+  },
+  "Increased mucus production": {
+    vitalEffects: {}
+  },
   "Irregular pulse": {
-    "heartRhythm": "irregular"
+    vitalEffects: {
+      "heartRhythm": "irregular"
+    }
   },
   "Labored breathing": {
-    "respiratoryEffort": "labored"
+    vitalEffects: {
+      "respiratoryEffort": "labored"
+    }
   },
-  "Muscle aches": {},
-  "Nausea": {},
-  "Numbness of the hands": {},
-  "Numbness of the mouth": {},
-  "Pain with inspiration": {},
+  "Muscle aches": {
+    vitalEffects: {}
+  },
+  "Nausea": {
+    vitalEffects: {}
+  },
+  "Numbness of the hands": {
+    vitalEffects: {}
+  },
+  "Numbness of the mouth": {
+    vitalEffects: {}
+  },
+  "Pain with inspiration": {
+    vitalEffects: {}
+  },
   "Pale skin color": {
-    "skinColor": "pale"
+    vitalEffects: {
+      "skinColor": "pale"
+    }
   },
   "Pale, cool, clammy skin": {
-    "skinColor": "pale",
-    "skinTemperature": "cool",
-    "skinMoisture": "clammy"
+    vitalEffects: {
+      "skinColor": "pale",
+      "skinTemperature": "cool",
+      "skinMoisture": "clammy"
+    }
   },
   "Rapid and deep breathing": {
-    "respiratoryRate": 1.5,
-    "respiratoryEffort": "deep"
+    vitalEffects: {
+      "respiratoryRate": 1.5,
+      "respiratoryEffort": "deep"
+    }
   },
   "Rapid breathing (tachypnea)": {
-    "respiratoryRate": 2.1
+    vitalEffects: {
+      "respiratoryRate": 2.1
+    }
   },
-  "Restlessness": {},
+  "Restlessness": {
+    vitalEffects: {}
+  },
   "Shallow breathing": {
-    "respiratoryEffort": "shallow"
+    vitalEffects: {
+      "respiratoryEffort": "shallow"
+    }
   },
-  "Shivering and chattering teeth": {},
+  "Shivering and chattering teeth": {
+    vitalEffects: {}
+  },
   "Shortness of breath (dyspnea)": {
-    "respiratoryRate": 1.5,
-    "respiratoryRhythm": "irregular",
-    "respiratoryEffort": "labored"
+    vitalEffects: {
+      "respiratoryRate": 1.5,
+      "respiratoryRhythm": "irregular",
+      "respiratoryEffort": "labored"
+    }
   },
-  "Sleepiness": {},
+  "Sleepiness": {
+    vitalEffects: {}
+  },
   "Slow pulse": {
-    "heartRate": 0.5
+    vitalEffects: {
+      "heartRate": 0.5
+    }
   },
-  "Stabbing chest pain": {},
+  "Stabbing chest pain": {
+    vitalEffects: {}
+  },
   "Sudden shortness of breath (dyspnea)": {
-    "respiratoryRate": 1.5,
-    "respiratoryRhythm": "irregular",
-    "respiratoryEffort": "labored"
+    vitalEffects: {
+      "respiratoryRate": 1.5,
+      "respiratoryRhythm": "irregular",
+      "respiratoryEffort": "labored"
+    }
   },
   "Sweating": {
-    "skinMoisture": "sweaty"
+    vitalEffects: {
+      "skinMoisture": "sweaty"
+    }
   },
-  "Thirst": {},
-  "Tingling of the hands": {},
-  "Tingling of the mouth": {},
-  "Trouble speaking": {},
-  "Vomiting": {},
+  "Thirst": {
+    vitalEffects: {}
+  },
+  "Tingling of the hands": {
+    vitalEffects: {}
+  },
+  "Tingling of the mouth": {
+    vitalEffects: {}
+  },
+  "Trouble speaking": {
+    vitalEffects: {}
+  },
+  "Vomiting": {
+    vitalEffects: {}
+  },
   "Weak pulse": {
-    "heartStrength": "weak",
-    "bloodPressure": "weak radial pulse"
+    vitalEffects: {
+      "heartStrength": "weak",
+      "bloodPressure": "weak radial pulse"
+    }
   },
-  "Wheezing": {}
+  "Wheezing": {
+    vitalEffects: {}
+  }
 };
 const conditions = [
   {
+    "id": "hypothermia-mild",
     "name": "Hypothermia (mild)",
     "description": "A cooling of the body's core to a temperature where brain and or muscle function is impaired.",
     "symptoms": [
@@ -128,6 +229,7 @@ const conditions = [
     ]
   },
   {
+    "id": "angina",
     "name": "Angina",
     "description": "Pain from diminished blood flow to the heart.",
     "symptoms": [
@@ -148,6 +250,7 @@ const conditions = [
     ]
   },
   {
+    "id": "shock-early",
     "name": "Shock (early stages)",
     "description": "The inadequate perfusion of tissue with oxygenated blood, due to a failure of the heart, blood vessels, and/or blood - to deliver oxygenated blood to the tissues.",
     "symptoms": [
@@ -180,6 +283,7 @@ const conditions = [
     ]
   },
   {
+    "id": "hantavirus",
     "name": "Hantavirus",
     "description": "Virus that produces a serious respiratory disease passed from the rodent reservoir to humans through inhalation of microscopic particles.",
     "symptoms": [
@@ -201,6 +305,7 @@ const conditions = [
     ]
   },
   {
+    "id": "hyperventilation",
     "name": "Hyperventilation",
     "description": "An increased respiratory rate often caused by an emotional stimulus.",
     "symptoms": [
@@ -231,6 +336,7 @@ const conditions = [
     ]
   },
   {
+    "id": "asthma-mild-moderate",
     "name": "Asthma (mild to moderate)",
     "description": "Characterized by narrowing of the airways, increased mucus production, and bronchial edema (swelling or inflammation of the bronchial tubes).",
     "symptoms": [
@@ -256,6 +362,7 @@ const conditions = [
     ]
   },
   {
+    "id": "asthma-severe",
     "name": "Asthma (severe)",
     "description": "Characterized by narrowing of the airways, increased mucus production, and bronchial edema (swelling or inflammation of the bronchial tubes).",
     "symptoms": [
@@ -289,6 +396,7 @@ const conditions = [
     ]
   },
   {
+    "id": "pulmonary-embolism",
     "name": "Pulmonary Embolism",
     "description": "Occurs when a clot (usually from a leg vein) breaks loose and lodges in the blood vessels of the lung.",
     "symptoms": [
