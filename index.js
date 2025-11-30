@@ -55,7 +55,7 @@ function displayVitals(patientData) {
  */
 function displaySelectedSymptoms(patientData) {
   const container = document.getElementById('selectedSymptoms');
-  container.innerHTML = '';
+  container.textContent = '';
 
   for (const symptom of patientData.symptoms.selected) {
     const li = document.createElement('li');
